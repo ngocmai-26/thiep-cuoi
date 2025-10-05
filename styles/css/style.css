@@ -1206,9 +1206,37 @@ html, body {
     font-size: 1.2rem;
 }
 
-/* Music Controls - Hidden */
+/* Music Controls */
 #musicControls {
-    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(139, 90, 60, 0.9);
+    border-radius: 50%;
+    padding: 15px;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+#musicControls button {
+    background: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #8b5a3c;
+    font-size: 1rem;
+}
+
+#musicControls button:hover {
+    transform: scale(1.1);
+    background: #f0f0f0;
 }
 
 .footer-title {
