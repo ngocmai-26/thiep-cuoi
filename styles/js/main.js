@@ -187,9 +187,12 @@ function openGiftBox(type) {
             <div class="gift-options">
                 <div class="gift-option">
                     <h4>💳 Chuyển khoản</h4>
-                    <p>Số tài khoản: 060312222631</p>
-                    <p>Ngân hàng: Sacombank</p>
-                    <p>Chủ tài khoản: HOANG VAN TOAN</p>
+                    <div class="copy-all-text" onclick="copyBankInfo('060312222631', 'Sacombank', 'HOANG VAN TOAN')" title="Click để copy tất cả">
+                        <p>Số tài khoản: <span class="highlight">060312222631</span></p>
+                        <p>Ngân hàng: <span class="highlight">Sacombank</span></p>
+                        <p>Chủ tài khoản: HOANG VAN TOAN</p>
+                        <div class="copy-hint">📋 Click để copy tất cả</div>
+                    </div>
                     <div class="qr-code-container">
                         <img src="styles/img/QR chu re.png" alt="QR Code chú rể" class="qr-code-image">
                     </div>
@@ -206,9 +209,12 @@ function openGiftBox(type) {
             <div class="gift-options">
                 <div class="gift-option">
                     <h4>💳 Chuyển khoản</h4>
-                    <p>Số tài khoản: 105879121162</p>
-                    <p>Ngân hàng: VietinBank</p>
-                    <p>Chủ tài khoản: NGUYEN THI MAI DUYEN</p>
+                    <div class="copy-all-text" onclick="copyBankInfo('105879121162', 'VietinBank', 'NGUYEN THI MAI DUYEN')" title="Click để copy tất cả">
+                        <p>Số tài khoản: <span class="highlight">105879121162</span></p>
+                        <p>Ngân hàng: <span class="highlight">VietinBank</span></p>
+                        <p>Chủ tài khoản: NGUYEN THI MAI DUYEN</p>
+                        <div class="copy-hint">📋 Click để copy tất cả</div>
+                    </div>
                     <div class="qr-code-container">
                         <img src="styles/img/QR co dau.png" alt="QR Code cô dâu" class="qr-code-image">
                     </div>
@@ -228,6 +234,23 @@ function closeGiftBox() {
     if (!giftModal) return;
     giftModal.style.display = 'none';
     document.body.style.overflow = 'auto';
+}
+
+function copyBankInfo(accountNumber, bankName, accountHolder) {
+    const bankInfo = `Số tài khoản: ${accountNumber}\nNgân hàng: ${bankName}\nChủ tài khoản: ${accountHolder}`;
+    
+    navigator.clipboard.writeText(bankInfo).then(function() {
+        showNotification('Đã copy thông tin tài khoản!', 'success');
+    }).catch(function(err) {
+        // Fallback cho trình duyệt cũ
+        const textArea = document.createElement('textarea');
+        textArea.value = bankInfo;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        showNotification('Đã copy thông tin tài khoản!', 'success');
+    });
 }
 
 document.addEventListener('click', function(e) {
@@ -433,7 +456,7 @@ function showNotification(message, type = 'success') {
     notification.className = `notification notification-${type}`;
     notification.textContent = message;
     notification.style.cssText = `
-        position: fixed; top: 20px; right: 20px; background: ${type === 'success' ? '#4CAF50' : '#f44336'}; color: white; padding: 15px 20px; border-radius: 5px; z-index: 1000; animation: slideInRight 0.3s ease;
+        position: fixed; top: 20px; right: 20px; background: ${type === 'success' ? '#4CAF50' : '#f44336'}; color: white; padding: 15px 20px; border-radius: 5px; z-index: 9999; animation: slideInRight 0.3s ease;
     `;
     document.body.appendChild(notification);
     setTimeout(() => { notification.remove(); }, 3000);
@@ -446,6 +469,145 @@ const notificationCSS = `
 const style = document.createElement('style');
 style.textContent = notificationCSS;
 document.head.appendChild(style);
+
+// Gallery Pagination System
+let weddingCurrentPage = 1;
+let journeyCurrentPage = 1;
+
+// Wedding gallery data (3 pages)
+const weddingGalleryData = [
+    // Page 1
+    [
+        'https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=300&fit=crop'
+    ],
+    // Page 2
+    [
+        'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop'
+    ],
+    // Page 3
+    [
+        'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop',
+        'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=300&fit=crop'
+    ]
+];
+
+// Journey gallery data (5 pages - 17 images total)
+const journeyGalleryData = [
+    // Page 1
+    [
+        'styles/img/hanhtrinhyeu/00808372-00df-431f-aa4b-b54dcc6f795e.jpeg',
+        'styles/img/hanhtrinhyeu/07291a4e-9803-47bb-ad05-481afcd9c371.jpeg',
+        'styles/img/hanhtrinhyeu/0aacac7b-0b09-4be5-acb1-4717127bc054.jpeg',
+        'styles/img/hanhtrinhyeu/1004326a-6784-4462-bf85-595a793ae924.jpeg'
+    ],
+    // Page 2
+    [
+        'styles/img/hanhtrinhyeu/115ddf40-622e-4843-a503-fe7715c8c9d7.jpeg',
+        'styles/img/hanhtrinhyeu/22e54ec6-2852-4843-b371-d7bf1e231e09.jpeg',
+        'styles/img/hanhtrinhyeu/4c265f76-5f52-4e1d-99a7-d53502542fef.jpeg',
+        'styles/img/hanhtrinhyeu/52de0937-5adc-4f20-bf16-2cab3e6dcd90.jpeg'
+    ],
+    // Page 3
+    [
+        'styles/img/hanhtrinhyeu/59b83e59-3a05-4a48-8366-b3e9fcf8b673.jpeg',
+        'styles/img/hanhtrinhyeu/a2af681f-c4c4-4011-b673-c1e9bfbe42e0.jpeg',
+        'styles/img/hanhtrinhyeu/a5d920c8-af73-4735-9885-e85d361dd8bf.jpeg',
+        'styles/img/hanhtrinhyeu/b6d67c66-ba0e-472c-8253-70390f7be305.jpeg'
+    ],
+    // Page 4
+    [
+        'styles/img/hanhtrinhyeu/bf692aef-216c-4ba4-bbec-871cd66ea278.jpeg',
+        'styles/img/hanhtrinhyeu/cf22c768-ea5c-4795-a744-f1d4b683700a.jpeg',
+        'styles/img/hanhtrinhyeu/d7c130ea-fa68-4930-b14b-f833a2a6e2b2.jpeg',
+        'styles/img/hanhtrinhyeu/edacd217-d136-4e0e-bacb-c6108eb16e98.jpeg'
+    ],
+    // Page 5
+    [
+        'styles/img/hanhtrinhyeu/ef876bb6-fe3e-4c6a-85f0-a5ab6a722f1f.jpeg'
+    ]
+];
+
+function updateWeddingGallery() {
+    const gallery = document.getElementById('wedding-gallery');
+    const pageInfo = document.getElementById('wedding-page-info');
+    const prevBtn = document.getElementById('wedding-prev');
+    const nextBtn = document.getElementById('wedding-next');
+    
+    if (!gallery) return;
+    
+    const currentImages = weddingGalleryData[weddingCurrentPage - 1];
+    const galleryItems = gallery.querySelectorAll('.gallery-item');
+    
+    currentImages.forEach((imageSrc, index) => {
+        if (galleryItems[index]) {
+            const img = galleryItems[index].querySelector('img');
+            if (img) {
+                img.src = imageSrc;
+                img.alt = `Wedding photo ${weddingCurrentPage}-${index + 1}`;
+            }
+        }
+    });
+    
+    // Update page info
+    pageInfo.textContent = `${weddingCurrentPage} / ${weddingGalleryData.length}`;
+    
+    // Update button states
+    prevBtn.disabled = weddingCurrentPage === 1;
+    nextBtn.disabled = weddingCurrentPage === weddingGalleryData.length;
+}
+
+function updateJourneyGallery() {
+    const gallery = document.getElementById('journey-gallery');
+    const pageInfo = document.getElementById('journey-page-info');
+    const prevBtn = document.getElementById('journey-prev');
+    const nextBtn = document.getElementById('journey-next');
+    
+    if (!gallery) return;
+    
+    const currentImages = journeyGalleryData[journeyCurrentPage - 1];
+    const galleryItems = gallery.querySelectorAll('.gallery-item');
+    
+    currentImages.forEach((imageSrc, index) => {
+        if (galleryItems[index]) {
+            const img = galleryItems[index].querySelector('img');
+            if (img) {
+                img.src = imageSrc;
+                img.alt = `Journey photo ${journeyCurrentPage}-${index + 1}`;
+            }
+        }
+    });
+    
+    // Update page info
+    pageInfo.textContent = `${journeyCurrentPage} / ${journeyGalleryData.length}`;
+    
+    // Update button states
+    prevBtn.disabled = journeyCurrentPage === 1;
+    nextBtn.disabled = journeyCurrentPage === journeyGalleryData.length;
+}
+
+function changeWeddingPage(direction) {
+    const newPage = weddingCurrentPage + direction;
+    if (newPage >= 1 && newPage <= weddingGalleryData.length) {
+        weddingCurrentPage = newPage;
+        updateWeddingGallery();
+    }
+}
+
+function changeJourneyPage(direction) {
+    const newPage = journeyCurrentPage + direction;
+    if (newPage >= 1 && newPage <= journeyGalleryData.length) {
+        journeyCurrentPage = newPage;
+        updateJourneyGallery();
+    }
+}
 
 document.addEventListener('DOMContentLoaded', function() {
     setInterval(updateCountdown, 1000);
@@ -460,4 +622,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initGallery();
     initBackgroundMusic();
     setInterval(createFloatingHeart, 2000);
+    
+    // Initialize galleries
+    updateWeddingGallery();
+    updateJourneyGallery();
 });
