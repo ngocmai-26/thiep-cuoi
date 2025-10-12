@@ -311,7 +311,11 @@ function initTypingEffect() {
 
 const musicList = [
     'styles/mp3/Mình Cưới Nhau Đi.mp3',
-    'styles/mp3/Chăm Em Một Đời.mp3'
+    'styles/mp3/Chăm Em Một Đời.mp3',
+    'styles/mp3/Bản Tình Ca Đầu Tiên (XHTDRLX2).mp3',
+    'styles/mp3/Em Đồng Ý (I Do).mp3',
+    'styles/mp3/Hơn Cả Yêu (Pro House).mp3',
+    'styles/mp3/Ngày Đầu Tiên.mp3'
 ];
 
 let currentMusicIndex = 0;
