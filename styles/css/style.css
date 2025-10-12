@@ -228,8 +228,17 @@ html, body {
 .wedding-date {
     font-size: 2rem;
     color: #ffffff;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.wedding-subtitle {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 40px;
+    animation: fadeInUp 1s ease-out 0.8s both;
+    font-style: italic;
+    opacity: 0.9;
 }
 
 .countdown-container {
@@ -511,7 +520,7 @@ html, body {
 
 .events-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
 
@@ -519,7 +528,10 @@ html, body {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border-radius: 20px;
-    padding: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: transform 0.3s ease;
@@ -864,6 +876,11 @@ html, body {
     color: white;
 }
 
+.rsvp-button.zalo {
+    background: linear-gradient(135deg, #0068FF, #0047CC);
+    color: white;
+}
+
 .rsvp-button:hover {
     transform: scale(1.05);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -1026,16 +1043,18 @@ html, body {
     padding: 20px;
     width: 90%;
     max-width: 600px;
+    max-height: 90vh;
     top: 50%;
     transform: translateY(-50%);
     background: white;
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
 }
 
 .gift-close {
     position: absolute;
-    top: 15px;
+    top: 5px;
     right: 20px;
     color: #8b5a3c;
     font-size: 2rem;
@@ -1050,7 +1069,7 @@ html, body {
 
 .gift-box {
     text-align: center;
-    padding: 20px;
+    padding: 15px;
 }
 
 .gift-box h3 {
@@ -1075,10 +1094,11 @@ html, body {
 
 .gift-option {
     background: #f8f9fa;
-    padding: 20px;
     border-radius: 15px;
+    padding: 10px;
     border: 2px solid #e9ecef;
     transition: all 0.3s ease;
+    text-align: center;
 }
 
 .gift-option:hover {
@@ -1097,6 +1117,20 @@ html, body {
     font-size: 0.9rem;
     margin-bottom: 5px;
     line-height: 1.4;
+}
+
+.qr-code-container {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.qr-code-image {
+    max-width: 350px;
+    max-height: 350px;
+    width: auto;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .gift-note {
@@ -1290,6 +1324,10 @@ html, body {
         font-size: 1.5rem;
     }
 
+    .wedding-subtitle {
+        font-size: 1.2rem;
+    }
+
     .countdown-container {
         gap: 15px;
     }
@@ -1331,6 +1369,7 @@ html, body {
 
     .events-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .form-row {
@@ -1374,6 +1413,20 @@ html, body {
         width: 60px;
         height: 60px;
         font-size: 1.5rem;
+    }
+
+    .gift-modal-content {
+        width: 95%;
+        max-height: 85vh;
+        padding: 15px;
+        margin: 20px auto;
+        top: auto;
+        transform: none;
+    }
+
+    .qr-code-image {
+        max-width: 350px;
+        max-height: 350px;
     }
 
     .gallery-grid {

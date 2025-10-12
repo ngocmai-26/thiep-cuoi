@@ -91,7 +91,7 @@ function initGallery() {
 }
 
 function updateCountdown() {
-    const weddingDate = new Date('2025-11-14T07:00:00').getTime();
+    const weddingDate = new Date('2025-11-01T09:10:00').getTime();
     const now = new Date().getTime();
     const distance = weddingDate - now;
     if (distance > 0) {
@@ -134,7 +134,7 @@ function updateCountdownElement(elementId, value) {
 }
 
 function checkWeddingDay() {
-    const weddingDate = new Date('2025-11-14T07:00:00');
+    const weddingDate = new Date('2025-11-01T09:10:00');
     const now = new Date();
     if (now.toDateString() === weddingDate.toDateString()) {
         const countdownContainer = document.querySelector('.countdown-container');
@@ -182,19 +182,17 @@ function openGiftBox(type) {
     if (!giftModal || !giftBox) return;
     if (type === 'groom') {
         giftBox.innerHTML = `
-            <h3>🎁 Hộp Quà Cưới - Văn Toàn</h3>
+            <h2>🎁 Hộp Quà Cưới - Chú rể</h2>
             <p>Cảm ơn bạn đã gửi lời chúc mừng đến chú rể!</p>
             <div class="gift-options">
                 <div class="gift-option">
                     <h4>💳 Chuyển khoản</h4>
-                    <p>Số tài khoản: 1234567890</p>
-                    <p>Ngân hàng: Vietcombank</p>
-                    <p>Chủ tài khoản: Văn Toàn</p>
-                </div>
-                <div class="gift-option">
-                    <h4>🎁 Quà tặng</h4>
-                    <p>Liên hệ: 090 123 4567</p>
-                    <p>Để được hướng dẫn gửi quà</p>
+                    <p>Số tài khoản: 060312222631</p>
+                    <p>Ngân hàng: Sacombank</p>
+                    <p>Chủ tài khoản: HOANG VAN TOAN</p>
+                    <div class="qr-code-container">
+                        <img src="styles/img/QR chu re.png" alt="QR Code chú rể" class="qr-code-image">
+                    </div>
                 </div>
             </div>
             <div class="gift-note">
@@ -203,19 +201,17 @@ function openGiftBox(type) {
         `;
     } else if (type === 'bride') {
         giftBox.innerHTML = `
-            <h3>🎁 Hộp Quà Cưới - Mai Duyên</h3>
+            <h2>🎁 Hộp Quà Cưới - Cô Dâu</h2>
             <p>Cảm ơn bạn đã gửi lời chúc mừng đến cô dâu!</p>
             <div class="gift-options">
                 <div class="gift-option">
                     <h4>💳 Chuyển khoản</h4>
-                    <p>Số tài khoản: 0987654321</p>
-                    <p>Ngân hàng: Vietcombank</p>
-                    <p>Chủ tài khoản: Mai Duyên</p>
-                </div>
-                <div class="gift-option">
-                    <h4>🎁 Quà tặng</h4>
-                    <p>Liên hệ: 090 987 6543</p>
-                    <p>Để được hướng dẫn gửi quà</p>
+                    <p>Số tài khoản: 105879121162</p>
+                    <p>Ngân hàng: VietinBank</p>
+                    <p>Chủ tài khoản: NGUYEN THI MAI DUYEN</p>
+                    <div class="qr-code-container">
+                        <img src="styles/img/QR co dau.png" alt="QR Code cô dâu" class="qr-code-image">
+                    </div>
                 </div>
             </div>
             <div class="gift-note">
