@@ -161,7 +161,7 @@ html, body {
 /* Header Section */
 .header {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&h=1080&fit=crop') center/cover no-repeat;
+                url('../img/background.jpg') center/cover no-repeat;
     min-height: 100vh;
     padding-top: 70px;
     display: flex;
@@ -1243,7 +1243,7 @@ html, body {
     position: relative;
     display: inline-block;
     width: 300px;
-    height: 200px;
+    height: 300px;
 }
 
 .thank-you-image img {
@@ -1622,4 +1622,19 @@ html, body {
 .slide-in-right.visible {
     opacity: 1;
     transform: translateX(0);
+}
+
+/* Thank You Image Responsive */
+@media (max-width: 768px) {
+    .thank-you-image {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .thank-you-image {
+        width: 200px;
+        height: 200px;
+    }
 }

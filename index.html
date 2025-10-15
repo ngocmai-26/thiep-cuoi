@@ -24,7 +24,7 @@
                 <a href="#home" class="nav-link">Trang chủ</a>
                 <a href="#story" class="nav-link">Câu chuyện</a>
                 <a href="#timeline" class="nav-link">Hành trình</a>
-                <a href="#love-journey" class="nav-link">Hành trình yêu</a>
+                <a href="#love-journey" class="nav-link">Album yêu</a>
                 <a href="#events" class="nav-link">Lịch trình</a>
                 <a href="#gallery" class="nav-link">Album ảnh</a>
                 <a href="#rsvp" class="nav-link">RSVP</a>
@@ -96,12 +96,16 @@
                 </div>
                 <div class="couple-photos slide-in-right">
                     <div class="photo-card">
-                        <div class="photo-placeholder">🤵</div>
+                        <div class="photo-placeholder">
+                            <img src="styles/img/Chure.jpg" alt="Văn Toàn" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+                        </div>
                         <div class="photo-name">Văn Toàn</div>
                         <div class="photo-description">Chàng trai trưởng thành, điềm đạm, đam mê bóng đá và yêu cuộc sống giản dị.</div>
                     </div>
                     <div class="photo-card">
-                        <div class="photo-placeholder">👰</div>
+                        <div class="photo-placeholder">
+                            <img src="styles/img/codau.jpg" alt="Mai Duyên" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+                        </div>
                         <div class="photo-name">Mai Duyên</div>
                         <div class="photo-description">Cô gái năng động, yêu đời, đam mê chia sẻ, luôn mang lại tiếng cười.</div>
                     </div>
@@ -117,7 +121,7 @@
                     <div class="timeline-date">2023</div>
                     <div class="timeline-content">
                         <div class="timeline-image">
-                            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=300&h=200&fit=crop" alt="Gặp nhau trên TikTok" loading="lazy">
+                            <img src="./styles/img/dautien.jpg" alt="Gặp nhau trên TikTok" loading="lazy">
                         </div>
                         <h3 class="timeline-title">Gặp nhau trên TikTok</h3>
                         <p class="timeline-description">Một ngày ở Đài Loan, anh Văn Toàn tình cờ hỏi cô giáo Mai Duyên: "Tiếng Trung của anh nói vậy đúng chưa em?" Và thế là câu chuyện tình yêu bắt đầu...</p>
@@ -127,7 +131,7 @@
                     <div class="timeline-date">2023</div>
                     <div class="timeline-content">
                         <div class="timeline-image">
-                            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=300&h=200&fit=crop" alt="Gặp nhau lần đầu" loading="lazy">
+                            <img src="./styles/img/lan 2.jpeg" alt="Gặp nhau lần đầu" loading="lazy">
                         </div>
                         <h3 class="timeline-title">Gặp nhau lần đầu</h3>
                         <p class="timeline-description">Từ những buổi học online, hai đứa quyết định gặp nhau lần đầu tại Bảo tàng Cố Cung Đài Loan, rồi chính thức nắm tay nhau trong chuyến đi núi Alishan đầy sương mờ và kỷ niệm.</p>
@@ -137,7 +141,7 @@
                     <div class="timeline-date">2023-2025</div>
                     <div class="timeline-content">
                         <div class="timeline-image">
-                            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=300&h=200&fit=crop" alt="Hành trình yêu thương" loading="lazy">
+                            <img src="./styles/img/lan3.jpeg" alt="Hành trình yêu thương" loading="lazy">
                         </div>
                         <h3 class="timeline-title">Hành trình yêu thương</h3>
                         <p class="timeline-description">Sau nhiều hành trình cùng nhau – từ Đà Lạt, Vũng Tàu, Malaysia đến những dự định phía trước – chúng mình nhận ra, điều đẹp nhất không phải là nơi đến, mà là người đồng hành.</p>
@@ -296,31 +300,33 @@
                 <div class="couple-profiles">
                     <div class="profile-card">
                         <div class="profile-photo">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face" alt="Văn Toàn" loading="lazy">
+                            <img src="styles/img/Chure.jpg" alt="Văn Toàn" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <div style="display:none; width:120px; height:120px; border-radius:50%; background:#f0f0f0; display:flex; align-items:center; justify-content:center; font-size:48px;">👨</div>
                         </div>
                         <div class="profile-info">
                             <h3 class="profile-title">Chú Rể</h3>
                             <h4 class="profile-name">Văn Toàn</h4>
                         </div>
                         <div class="gift-button-container">
-                            <button class="simple-gift-button" onclick="openGiftBox('groom')">
+                            <!-- <button class="simple-gift-button" onclick="openGiftBox('groom')">
                                 Mừng cưới
-                            </button>
+                            </button> -->
                         </div>
                     </div>
                     
                     <div class="profile-card">
                         <div class="profile-photo">
-                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200&h=200&fit=crop&crop=face" alt="Mai Duyên" loading="lazy">
+                            <img src="styles/img/codau.jpg" alt="Mai Duyên" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <div style="display:none; width:120px; height:120px; border-radius:50%; background:#f0f0f0; display:flex; align-items:center; justify-content:center; font-size:48px;">👩</div>
                         </div>
                         <div class="profile-info">
                             <h3 class="profile-title">Cô Dâu</h3>
                             <h4 class="profile-name">Mai Duyên</h4>
                         </div>
                         <div class="gift-button-container">
-                            <button class="simple-gift-button" onclick="openGiftBox('bride')">
+                            <!-- <button class="simple-gift-button" onclick="openGiftBox('bride')">
                                 Mừng cưới
-                            </button>
+                            </button> -->
                         </div>
                     </div>
                 </div>
@@ -418,7 +424,7 @@
                 </div>
                 
                 <div class="rsvp-note">
-                    <p><i class="fas fa-info-circle"></i> Vui lòng xác nhận trước ngày 25/10/2025 để chúng mình có thể chuẩn bị chu đáo hơn.</p>
+                    <p><i class="fas fa-info-circle"></i> Vui lòng xác nhận trước ngày 29/10/2025 để chúng mình có thể chuẩn bị chu đáo hơn.</p>
                 </div>
             </div>
         </section>
@@ -427,7 +433,7 @@
         <section class="section thank-you">
             <div class="thank-you-content">
                 <div class="thank-you-image">
-                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=300&fit=crop" alt="Mai Duyên & Văn Toàn" loading="lazy">
+                    <img src="styles/img/anhcuoi/_AT_9413.jpg" alt="Mai Duyên & Văn Toàn" loading="lazy">
                 </div>
                 <h2 class="thank-you-title">Thank you!</h2>
                 <div class="thank-you-names">
@@ -440,7 +446,7 @@
     </div>
 
     <!-- Gift Box Modal -->
-    <div class="gift-modal" id="giftModal">
+    <!-- <div class="gift-modal" id="giftModal">
         <div class="gift-modal-content">
             <span class="gift-close" onclick="closeGiftBox()">&times;</span>
             <div class="gift-box">
@@ -467,7 +473,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
     <!-- Lightbox Modal -->

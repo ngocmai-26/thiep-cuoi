@@ -176,6 +176,8 @@ function initSmoothScrolling() {
     });
 }
 
+// Gift Box Functions - Commented out
+/*
 function openGiftBox(type) {
     const giftModal = document.getElementById('giftModal');
     const giftBox = document.querySelector('.gift-box');
@@ -252,6 +254,7 @@ function copyBankInfo(accountNumber, bankName, accountHolder) {
         showNotification('Đã copy thông tin tài khoản!', 'success');
     });
 }
+*/
 
 document.addEventListener('click', function(e) {
     const giftModal = document.getElementById('giftModal');
@@ -478,28 +481,49 @@ document.head.appendChild(style);
 let weddingCurrentPage = 1;
 let journeyCurrentPage = 1;
 
-// Wedding gallery data (3 pages)
+// Wedding gallery data (6 pages)
 const weddingGalleryData = [
     // Page 1
     [
-        'https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=300&fit=crop',
-        'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=300&fit=crop',
-        'https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=300&fit=crop',
-        'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=300&fit=crop'
+        'styles/img/anhcuoi/_AT_9173.jpg',
+        'styles/img/anhcuoi/_AT_9183.jpg',
+        'styles/img/anhcuoi/_AT_9191.jpg',
+        'styles/img/anhcuoi/_AT_9213.jpg'
     ],
     // Page 2
     [
-        'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop',
-        'https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=300&fit=crop',
-        'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=300&fit=crop',
-        'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop'
+        'styles/img/anhcuoi/_AT_9227.jpg',
+        'styles/img/anhcuoi/_AT_9243.jpg',
+        'styles/img/anhcuoi/_AT_9252.jpg',
+        'styles/img/anhcuoi/_AT_9279.jpg'
     ],
     // Page 3
     [
-        'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=300&fit=crop',
-        'https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=300&fit=crop',
-        'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop',
-        'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=300&fit=crop'
+        'styles/img/anhcuoi/_AT_9294.jpg',
+        'styles/img/anhcuoi/_AT_9299.jpg',
+        'styles/img/anhcuoi/_AT_9324.jpg',
+        'styles/img/anhcuoi/_AT_9329.jpg'
+    ],
+    // Page 4
+    [
+        'styles/img/anhcuoi/_AT_9339.jpg',
+        'styles/img/anhcuoi/_AT_9352.jpg',
+        'styles/img/anhcuoi/_AT_9355.jpg',
+        'styles/img/anhcuoi/_AT_9358.jpg'
+    ],
+    // Page 5
+    [
+        'styles/img/anhcuoi/_AT_9360.jpg',
+        'styles/img/anhcuoi/_AT_9367.jpg',
+        'styles/img/anhcuoi/_AT_9378.jpg',
+        'styles/img/anhcuoi/_AT_9381.jpg'
+    ],
+    // Page 6
+    [
+        'styles/img/anhcuoi/_AT_9395.jpg',
+        'styles/img/anhcuoi/_AT_9404.jpg',
+        'styles/img/anhcuoi/_AT_9410.jpg',
+        'styles/img/anhcuoi/_AT_9413.jpg'
     ]
 ];
 
@@ -547,6 +571,7 @@ function updateWeddingGallery() {
     
     if (!gallery) return;
     
+    console.log('Wedding gallery current page:', weddingCurrentPage);
     const currentImages = weddingGalleryData[weddingCurrentPage - 1];
     const galleryItems = gallery.querySelectorAll('.gallery-item');
     
@@ -628,6 +653,8 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(createFloatingHeart, 2000);
     
     // Initialize galleries
+    weddingCurrentPage = 1;
+    journeyCurrentPage = 1;
     updateWeddingGallery();
     updateJourneyGallery();
 });
