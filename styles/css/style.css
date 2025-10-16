@@ -161,7 +161,7 @@ html, body {
 /* Header Section */
 .header {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                url('../img/background.jpg') center/cover no-repeat;
+                url('../img/background.jpg') center 30%/cover no-repeat;
     min-height: 100vh;
     padding-top: 70px;
     display: flex;
@@ -406,6 +406,14 @@ html, body {
     justify-content: center;
     font-size: 3rem;
     color: white;
+    overflow: hidden;
+}
+
+.photo-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
 }
 
 .photo-name {
@@ -663,6 +671,7 @@ html, body {
     width: 100%;
     height: 250px;
     object-fit: cover;
+    object-position: center 30%;
     transition: transform 0.3s ease;
 }
 
@@ -1022,6 +1031,7 @@ html, body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 30%;
 }
 
 .profile-title {
@@ -1250,6 +1260,7 @@ html, body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 30%;
     border-radius: 20px;
     border: 3px solid #8b5a3c;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
